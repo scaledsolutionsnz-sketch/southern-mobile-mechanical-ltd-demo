@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leave a Review | Southern Mobile Mechanical Ltd</title>
+<meta name="description" content="Tell us how we did — rate Southern Mobile Mechanical, Gore's mobile mechanic.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav solid">
+  <div class="wrap">
+    <a href="index.html" class="brand">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#1a0d05" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5 5L3 18l3 3 6.7-6.7a4 4 0 0 0 5-5l-2.8 2.8-2.4-.4-.4-2.4 2.8-2.8z"/></svg></span>
+      <span><b>Southern Mobile</b><span>Mechanical · Gore</span></span>
+    </a>
+    <a href="index.html" class="nav-phone">← Back to site</a>
+  </div>
+</nav>
+
+<main class="review-shell">
+  <div class="review-card">
+    <span class="eyebrow">Your feedback</span>
+    <h1>How did we do?</h1>
+    <p>Tap a rating below. If we've earned it, we'd love a public review — and if something wasn't right, tell us privately so we can put it right.</p>
+
+    <div class="starpick" id="starpick">
+      <button data-r="1" aria-label="1 star"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg></button>
+      <button data-r="2" aria-label="2 stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg></button>
+      <button data-r="3" aria-label="3 stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg></button>
+      <button data-r="4" aria-label="4 stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg></button>
+      <button data-r="5" aria-label="5 stars"><svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9.3 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.3 9 9"/></svg></button>
+    </div>
+    <p class="review-hint" id="hint">Tap a star to rate your experience</p>
+    <a href="index.html" class="backlink">← Return to homepage</a>
+  </div>
+</main>
+
+<script>
+  // 4–5 stars -> Google review; 1–3 -> private feedback form
+  var GOOGLE_REVIEW_URL="https://g.page/r/PLACEHOLDER/review";
+  var pick=document.getElementById('starpick');
+  var buttons=Array.prototype.slice.call(pick.querySelectorAll('button'));
+  var hint=document.getElementById('hint');
+  buttons.forEach(function(btn){
+    btn.addEventListener('mouseenter',function(){
+      var r=+btn.getAttribute('data-r');
+      buttons.forEach(function(b,i){b.classList.toggle('lit',i<r)});
+      pick.classList.add('hot');
+    });
+    btn.addEventListener('click',function(){
+      var r=+btn.getAttribute('data-r');
+      hint.textContent="Thanks — one moment…";
+      if(r>=4){window.location.href=GOOGLE_REVIEW_URL;}
+      else{window.location.href="private.html?rating="+r;}
+    });
+  });
+  pick.addEventListener('mouseleave',function(){pick.classList.remove('hot');buttons.forEach(function(b){b.classList.remove('lit')})});
+</script>
+<style>
+  .starpick button.lit svg{color:var(--accent)}
+</style>
+</body>
+</html>
