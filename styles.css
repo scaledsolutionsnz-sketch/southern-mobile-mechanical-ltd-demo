@@ -1,5 +1,5 @@
 /* Southern Mobile Mechanical Ltd — Industrial theme
-   Fonts: Anton (display) + Public Sans (body) | Accent: safety orange */
+   Fonts: Anton (display) + Public Sans (body) | Accent: SMM logo red */
 
 :root{
   --ink:#14161a;
@@ -8,8 +8,8 @@
   --steel-line:#333944;
   --bone:#f3f1ec;
   --paper:#ffffff;
-  --accent:#ff5a1e;
-  --accent-deep:#e24810;
+  --accent:#e4232a;
+  --accent-deep:#bf1a20;
   --text:#16181c;
   --muted:#5a616b;
   --muted-light:#a7adb8;
@@ -90,6 +90,11 @@ section{position:relative}
 .brand .mark svg{width:22px;height:22px}
 .brand b{font-family:"Anton";font-weight:400;font-size:20px;letter-spacing:.6px;text-transform:uppercase;line-height:1}
 .brand span{display:block;font-size:10.5px;letter-spacing:.24em;color:var(--accent);font-weight:700;text-transform:uppercase;margin-top:3px}
+.brand-logo{height:52px;width:auto;display:block}
+.foot .brand-logo{height:66px}
+.foot-social{display:inline-flex;align-items:center;gap:9px;margin-top:16px;color:var(--on-dark-muted);font-weight:700;font-size:14px;transition:color .2s}
+.foot-social:hover{color:var(--accent)}
+.foot-social svg{width:20px;height:20px}
 .nav-links{display:flex;align-items:center;gap:30px}
 .nav-links a{color:var(--on-dark-muted);font-weight:600;font-size:14.5px;letter-spacing:.02em;transition:color .2s}
 .nav-links a:hover{color:#fff}
